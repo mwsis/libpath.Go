@@ -1,8 +1,6 @@
 package libpath
 
 import (
-	"fmt"
-	"os"
 	"path/filepath"
 	"strings"
 )
@@ -170,11 +168,9 @@ func createPathDescriptor(path string, ref_dir string) (PathDescriptor, error) {
 
 	directory := simplePathJoin(directory_parts...)
 	location := simplePathJoin(root, directory)
-	file_base := basename(full_path)
+	file_base := basename(file_part)
 	file_ext := filepath.Ext(full_path)
 	file_stem := file_base[0:(len(file_base) - len(file_ext))]
-
-	fmt.Fprintf(os.Stderr, "%s: full_path='%v' => file_base='%v', file_ext='%v', file_stem='%v', \t\n", debug.FileLine(), full_path, file_base, file_ext, file_stem)
 
 	// pd.input
 	pd.FullPath = full_path

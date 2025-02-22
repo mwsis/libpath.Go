@@ -1,8 +1,6 @@
 package libpath
 
 import (
-	"fmt"
-	"os"
 	"strings"
 	"testing"
 
